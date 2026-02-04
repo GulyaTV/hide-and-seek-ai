@@ -401,7 +401,7 @@ func update_debug_info():
 		
 		debug_info.text = info_text
 
-func is_seeker() -> bool:
+func is_seeker_role() -> bool:
 	return is_seeker
 
 func get_ai_status() -> Dictionary:
