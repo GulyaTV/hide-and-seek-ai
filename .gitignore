@@ -1,0 +1,63 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Imported translations (automatically generated from *.po files)
+*.import
+
+# Import hint files
+*.hint
+
+# Mono specific ignores
+.mono/
+data_*/
+
+# Build artifacts
+build/
+
+# Visual Studio Code
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Cache directories
+.cache/
+__pycache__/
+
+# AI/ML specific
+*.pkl
+*.h5
+*.hdf5
+*.model
+models/
+checkpoints/
+tensorboard_logs/
+
+# Exported builds
+export/
+*.zip
+*.exe
+*.app
+*.deb
+*.rpm
+
+# User-specific
+user://
+user://*
+
+# Debug files
+debug/
+*.debug

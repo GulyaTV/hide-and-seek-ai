@@ -1,0 +1,123 @@
+[gd_scene load_steps=4 format=3 uid="uid://hide_and_seek_arena"]
+
+[ext_resource type="Script" path="res://scripts/arena_manager.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_top"]
+size = Vector2(2000, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bottom"]
+size = Vector2(2000, 20)
+
+[node name="HideAndSeekArena" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="TopWall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(0, -650)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall"]
+shape = SubResource("RectangleShape2D_top")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boundaries/TopWall"]
+modulate = Color(0.3, 0.3, 0.4, 1)
+
+[node name="BottomWall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(0, 650)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall"]
+shape = SubResource("RectangleShape2D_bottom")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boundaries/BottomWall"]
+modulate = Color(0.3, 0.3, 0.4, 1)
+
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-900, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall"]
+shape = SubResource("RectangleShape2D_left")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boundaries/LeftWall"]
+modulate = Color(0.3, 0.3, 0.4, 1)
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(900, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall"]
+shape = SubResource("RectangleShape2D_right")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boundaries/RightWall"]
+modulate = Color(0.3, 0.3, 0.4, 1)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Box1" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-300, -200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Box1"]
+shape = SubResource("RectangleShape2D_box1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Box1"]
+modulate = Color(0.2, 0.6, 0.2, 1)
+
+[node name="Box2" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(300, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Box2"]
+shape = SubResource("RectangleShape2D_box2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Box2"]
+modulate = Color(0.2, 0.6, 0.2, 1)
+
+[node name="Box3" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(0, -400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Box3"]
+shape = SubResource("RectangleShape2D_box3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Box3"]
+modulate = Color(0.2, 0.6, 0.2, 1)
+
+[node name="Box4" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-500, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Box4"]
+shape = SubResource("RectangleShape2D_box4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Box4"]
+modulate = Color(0.2, 0.6, 0.2, 1)
+
+[node name="Box5" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(400, -300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Box5"]
+shape = SubResource("RectangleShape2D_box5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Box5"]
+modulate = Color(0.2, 0.6, 0.2, 1)
+
+[node name="HidingSpots" type="Node2D" parent="."]
+
+[node name="Spot1" type="Area2D" parent="HidingSpots"]
+position = Vector2(-600, -400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HidingSpots/Spot1"]
+shape = SubResource("CircleShape2D_spot1")
+
+[node name="Spot2" type="Area2D" parent="HidingSpots"]
+position = Vector2(600, -400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HidingSpots/Spot2"]
+shape = SubResource("CircleShape2D_spot2")
+
+[node name="Spot3" type="Area2D" parent="HidingSpots"]
+position = Vector2(-600, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HidingSpots/Spot3"]
+shape = SubResource("CircleShape2D_spot3")
+
+[node name="Spot4" type="Area2D" parent="HidingSpots"]
+position = Vector2(600, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HidingSpots/Spot4"]
+shape = SubResource("CircleShape2D_spot4")

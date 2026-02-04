@@ -1,0 +1,11 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="128" height="128" rx="16" fill="#1a1a2e"/>
+<circle cx="40" cy="40" r="12" fill="#16213e"/>
+<circle cx="88" cy="40" r="12" fill="#16213e"/>
+<path d="M30 70C30 60 40 50 50 50H78C88 50 98 60 98 70V90C98 100 88 110 78 110H50C40 110 30 100 30 90V70Z" fill="#0f3460"/>
+<circle cx="50" cy="80" r="8" fill="#e94560"/>
+<circle cx="78" cy="80" r="8" fill="#e94560"/>
+<rect x="45" y="75" width="38" height="10" rx="5" fill="#16213e"/>
+<path d="M64 30V40M54 35L74 35" stroke="#e94560" stroke-width="3" stroke-linecap="round"/>
+<text x="64" y="125" text-anchor="middle" fill="#e94560" font-family="Arial" font-size="8" font-weight="bold">AI</text>
+</svg>

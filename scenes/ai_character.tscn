@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://ai_character"]
+
+[ext_resource type="Script" path="res://ai/ai_controller.gd" id="1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ai"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ai_vision"]
+radius = 200.0
+
+[node name="AICharacter" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ai")
+
+[node name="VisionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="VisionShape" type="CollisionShape2D" parent="VisionArea"]
+shape = SubResource("CircleShape2D_ai_vision")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1.0, 0.5, 0.0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = -10.0
+text = "AI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DebugInfo" type="Label" parent="."]
+visible = false
+offset_left = -60.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 80.0
+text = "AI Debug Info"
+horizontal_alignment = 1
+
+[node name="DecisionIndicator" type="Node2D" parent="."]
+visible = false
+
+[node name="Arrow" type="Sprite2D" parent="DecisionIndicator"]
+modulate = Color(1.0, 1.0, 0.0, 0.8)
+
+[node name="ThinkingIndicator" type="Node2D" parent="."]
+visible = false
+
+[node name="Dots" type="Node2D" parent="ThinkingIndicator"]
+
+[node name="Dot1" type="Sprite2D" parent="ThinkingIndicator/Dots"]
+position = Vector2(-10, 0)
+modulate = Color(1.0, 1.0, 0.0, 0.6)
+
+[node name="Dot2" type="Sprite2D" parent="ThinkingIndicator/Dots"]
+modulate = Color(1.0, 1.0, 0.0, 0.6)
+
+[node name="Dot3" type="Sprite2D" parent="ThinkingIndicator/Dots"]
+position = Vector2(10, 0)
+modulate = Color(1.0, 1.0, 0.0, 0.6)

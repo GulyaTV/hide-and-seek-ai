@@ -1,0 +1,200 @@
+[gd_scene load_steps=3 format=3 uid="uid://game_arena"]
+
+[ext_resource type="PackedScene" uid="uid://hide_and_seek_arena" path="res://levels/hide_and_seek_arena.tscn" id="1"]
+[ext_resource type="Script" path="res://scripts/game_arena_manager.gd" id="2"]
+
+[node name="GameArena" type="Node2D"]
+script = ExtResource("2")
+
+[node name="Arena" parent="." instance=ExtResource("1")]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="HiderSpawn1" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-400, -300)
+
+[node name="HiderSpawn2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(400, -300)
+
+[node name="HiderSpawn3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(0, -400)
+
+[node name="SeekerSpawn1" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(0, 0)
+
+[node name="SeekerSpawn2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-200, 200)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 0)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GameHUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TopPanel" type="Panel" parent="UI/GameHUD"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+
+[node name="TopContainer" type="HBoxContainer" parent="UI/GameHUD/TopPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+
+[node name="GameInfo" type="VBoxContainer" parent="UI/GameHUD/TopPanel/TopContainer"]
+layout_mode = 2
+
+[node name="ModeLabel" type="Label" parent="UI/GameHUD/TopPanel/TopContainer/GameInfo"]
+layout_mode = 2
+text = "Mode: AI vs AI"
+horizontal_alignment = 1
+
+[node name="RoundLabel" type="Label" parent="UI/GameHUD/TopPanel/TopContainer/GameInfo"]
+layout_mode = 2
+text = "Round: 1/5"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="UI/GameHUD/TopPanel/TopContainer/GameInfo"]
+layout_mode = 2
+text = "Time: 5:00"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="UI/GameHUD/TopPanel/TopContainer"]
+layout_mode = 2
+
+[node name="ScoreInfo" type="VBoxContainer" parent="UI/GameHUD/TopPanel/TopContainer"]
+layout_mode = 2
+
+[node name="HidersLabel" type="Label" parent="UI/GameHUD/TopPanel/TopContainer/ScoreInfo"]
+layout_mode = 2
+text = "Hiders: 0"
+modulate = Color(0.2, 0.6, 1.0, 1)
+horizontal_alignment = 1
+
+[node name="SeekersLabel" type="Label" parent="UI/GameHUD/TopPanel/TopContainer/ScoreInfo"]
+layout_mode = 2
+text = "Seekers: 0"
+modulate = Color(1.0, 0.5, 0.0, 1)
+horizontal_alignment = 1
+
+[node name="BottomPanel" type="Panel" parent="UI/GameHUD"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+
+[node name="BottomContainer" type="HBoxContainer" parent="UI/GameHUD/BottomPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+
+[node name="MenuButton" type="Button" parent="UI/GameHUD/BottomPanel/BottomContainer"]
+layout_mode = 2
+text = "Menu"
+
+[node name="PauseButton" type="Button" parent="UI/GameHUD/BottomPanel/BottomContainer"]
+layout_mode = 2
+text = "Pause"
+
+[node name="RestartButton" type="Button" parent="UI/GameHUD/BottomPanel/BottomContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="DebugButton" type="Button" parent="UI/GameHUD/BottomPanel/BottomContainer"]
+layout_mode = 2
+text = "Debug"
+
+[node name="AIStats" type="Panel" parent="UI/GameHUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = -20.0
+offset_bottom = 200.0
+
+[node name="StatsContainer" type="VBoxContainer" parent="UI/GameHUD/AIStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="TitleLabel" type="Label" parent="UI/GameHUD/AIStats/StatsContainer"]
+layout_mode = 2
+text = "AI Statistics"
+horizontal_alignment = 1
+
+[node name="StatsList" type="ScrollContainer" parent="UI/GameHUD/AIStats/StatsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StatsContent" type="VBoxContainer" parent="UI/GameHUD/AIStats/StatsContainer/StatsList"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PauseMenu" type="Panel" parent="UI/GameHUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+
+[node name="PauseContainer" type="VBoxContainer" parent="UI/GameHUD/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="PauseLabel" type="Label" parent="UI/GameHUD/PauseMenu/PauseContainer"]
+layout_mode = 2
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="UI/GameHUD/PauseMenu/PauseContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="UI/GameHUD/PauseMenu/PauseContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="UI/GameHUD/PauseMenu/PauseContainer"]
+layout_mode = 2
+text = "Quit"
