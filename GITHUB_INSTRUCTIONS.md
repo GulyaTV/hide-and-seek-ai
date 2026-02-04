@@ -14,12 +14,12 @@
 ### 2. Connect Local Repository to GitHub
 Copy the repository URL from GitHub (it will look like):
 ```
-https://github.com/YOUR_USERNAME/hide-and-seek-ai.git
+https://github.com/GulyaTV/hide-and-seek-ai.git
 ```
 
 Then run in your terminal:
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/hide-and-seek-ai.git
+git remote add origin https://github.com/GulyaTV/hide-and-seek-ai.git
 ```
 
 ### 3. Push to GitHub

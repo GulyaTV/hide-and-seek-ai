@@ -7,13 +7,15 @@ signal ai_decision_made(action: String, confidence: float)
 signal ai_learning_progress(episode: int, reward: float)
 signal ai_state_changed(state: String)
 
+const AIAgent = preload("res://ai/ai_agent.gd")
+
 @export var is_seeker: bool = false
 @export var ai_name: String = "AI_Agent"
 @export var movement_speed: float = 150.0
 @export var vision_range: float = 200.0
 @export var decision_frequency: float = 0.5  # Решения принимаются каждые 0.5 секунды
 
-var ai_agent: AIAgent
+var ai_agent
 var current_action: String = "STAY"
 var action_confidence: float = 0.0
 var decision_timer: float = 0.0
@@ -36,7 +38,7 @@ func _ready():
 
 func setup_ai():
 	# Создаем AI агент
-	ai_agent = AIAgent.new()
+	ai_agent = preload("res://ai/ai_agent.gd").new()
 	ai_agent.is_seeker = is_seeker
 	ai_agent.ai_name = ai_name
 	ai_agent.movement_speed = movement_speed
@@ -194,7 +196,7 @@ func move_to_position(target_position: Vector2):
 	var direction = (target_position - global_position).normalized()
 	velocity = direction * movement_speed
 
-def explore_area():
+func explore_area():
 	# Исследуем случайные точки на карте
 	var random_target = Vector2(
 		randf_range(-800, 800),
@@ -207,7 +209,7 @@ func find_nearest_hider() -> Node2D:
 	var min_distance = INF
 	
 	for entity in detected_entities:
-		if entity.has_method("is_seeker") and not entity.is_seeker:
+		if entity.has_method("is_seeker_role") and not entity.is_seeker_role():
 			var distance = global_position.distance_to(entity.global_position)
 			if distance < min_distance:
 				min_distance = distance
@@ -311,7 +313,7 @@ func determine_ai_state() -> String:
 		if detected_entities.size() > 0:
 			var has_seekers = false
 			for entity in detected_entities:
-				if entity.is_seeker():
+				if entity.is_seeker_role():
 					has_seekers = true
 					break
 			

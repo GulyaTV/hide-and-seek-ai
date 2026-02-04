@@ -201,11 +201,11 @@ func open_door(door: Node2D):
 		collision.set_deferred("disabled", false)
 
 func _on_vision_area_entered(body: Node2D):
-	if body != self and body.has_method("is_seeker"):
+	if body != self and body.has_method("is_seeker_role"):
 		detected_entities.append(body)
 		
 		# Если мы искатель и видим хайдера
-		if is_seeker and not body.is_seeker:
+		if is_seeker and not body.is_seeker_role():
 			check_catch_condition(body)
 
 func _on_vision_area_exited(body: Node2D):
@@ -244,7 +244,7 @@ func update_debug_info():
 		
 		debug_info.text = info_text
 
-func is_seeker() -> bool:
+func is_seeker_role() -> bool:
 	return is_seeker
 
 func get_detected_entities() -> Array[Node2D]:
